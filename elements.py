@@ -6,8 +6,8 @@ class element:
         pass
 
     def exp_square(self,n):
-        f = ((n+1) ** 2) + ((n * 2) ** 2)
-        print(f)
+        return ((n+1) ** 2) + ((n * 2) ** 2)
+        
     
 element_instance = element()
 element_instance.exp_square(5)
