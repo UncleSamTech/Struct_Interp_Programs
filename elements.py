@@ -51,7 +51,7 @@ class element:
         
     def exercise1_3(self,num1,num2,num3):
         big_num = self.big_number(num1,num2)
-        if num3 > self.big_number(num1,num2):
+        if num3 > big_num:
             return (num3 ** 2) + (big_num ** 2)
         else:
             if num2 > num3 and num1 > num3:
@@ -63,7 +63,8 @@ class element:
             
        
 
-
+    def exercise1_4(self):
+        pass
     
 
                                                                                                                                                                                                             
