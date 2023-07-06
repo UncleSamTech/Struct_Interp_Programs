@@ -67,6 +67,9 @@ class element:
         else:
             return a + (-(b))
         
+    
+
+
     def get_answer(self):
         answer =  self.exercise1_3(4,6,3)
         answer2 = self.exercise1_4(2,21)
