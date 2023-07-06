@@ -57,14 +57,21 @@ class element:
             if num2 > num3 and num1 > num3:
                 return (num1 ** 2) + (num2 ** 2)
             
-    def get_answer(self):
-        answer =  self.exercise1_3(4,6,3)
-        print(answer)
+  
             
        
 
-    def exercise1_4(self):
-        pass
+    def exercise1_4(self,a,b):
+        if (b > 0):
+            return a + b
+        else:
+            return a + (-(b))
+        
+    def get_answer(self):
+        answer =  self.exercise1_3(4,6,3)
+        answer2 = self.exercise1_4(2,21)
+        print(answer2)
+        print(answer)
     
 
                                                                                                                                                                                                             
