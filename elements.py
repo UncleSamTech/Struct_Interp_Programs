@@ -67,7 +67,30 @@ class element:
         else:
             return a + (-(b))
         
+    def check_guess_accuracy(self,guess,radicand):
+        return True if radicand - (guess ** 2) <= 0.001 else False
     
+    def improve_guess(self,old_guess,quotient,radicand):
+
+        res = (quotient + old_guess) / 2
+        if self.check_guess_accuracy(old_guess,radicand):
+            return res
+        else:
+            return self.improve_guess(res,quotient,radicand)
+    
+    
+
+
+        
+    def sqrt_guess(self,radicand):
+        guess = 1
+
+        if (self.check_guess_accuracy(guess,radicand)):
+            return guess
+        else:
+            quotient = radicand  / guess
+            return self.improve_guess(guess,quotient,radicand)
+         
 
 
     def get_answer(self):
@@ -81,3 +104,4 @@ class element:
 element_instance = element()
 element_instance.exp_square(5)
 element_instance.get_answer()
+element_instance.sqrt_guess(25)
