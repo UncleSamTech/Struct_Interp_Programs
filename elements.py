@@ -44,17 +44,14 @@ class element:
         print(quot)  #find predicate in the wiki
 
     def big_number(self,num1,num2):
-        if num1 > num2:
-            return num1
-        else:
-            return num2
+        return max(num1,num2)
         
     def exercise1_3(self,num1,num2,num3):
         big_num = self.big_number(num1,num2)
         if num3 > big_num:
             return (num3 ** 2) + (big_num ** 2)
         else:
-            if num2 > num3 and num1 > num3:
+            if max(num2,num3) == num2 and max(num1 , num3) == num1:
                 return (num1 ** 2) + (num2 ** 2)
             
   
@@ -68,7 +65,7 @@ class element:
             return a + (-(b))
         
     def check_guess_accuracy(self,guess,radicand):
-        return True if guess < radicand and abs(radicand - (guess ** 2) <= 0.01) else False
+        return True if abs(radicand - (guess ** 2) <= 0.01) else False
 
         
     def sqrt_guess_ex1_7(self,radicand,guess):
@@ -77,14 +74,23 @@ class element:
             return guess
         else:
             quotient = radicand  / guess
+            print('quot',quotient)
             main_guess = (quotient + guess) / 2
-            return self.sqrt_guess_ex1_7(radicand,main_guess)
+            print('main_guess',main_guess)
+            if self.check_guess_accuracy(main_guess,radicand):
+                return main_guess
+            else:
+                quotient = radicand / main_guess
+                new_guess = (quotient + main_guess) / 2
+                return self.sqrt_guess_ex1_7(new_guess,radicand)
          
 
 
     def get_answer(self):
         answer =  self.exercise1_3(4,6,3)
         answer2 = self.exercise1_4(2,21)
+        guess = self.sqrt_guess_ex1_7(200,2)
+        print(guess)
         print(answer2)
         print(answer)
     
@@ -93,4 +99,4 @@ class element:
 element_instance = element()
 element_instance.exp_square(5)
 element_instance.get_answer()
-element_instance.sqrt_guess_ex1_7(30,4)
+#element_instance.sqrt_guess_ex1_7(300,4)
