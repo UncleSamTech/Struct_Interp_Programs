@@ -39,12 +39,34 @@ class element:
         
     def exercise1_2(self):
         numerator = (5 + 4 + (2 - (3 - (6 + (4/5)))))
-        denominator = 3 * (6 -2) (2 -7)
+        denominator = 3 * (6 -2) * (2 -7)
         quot = numerator / denominator
         print(quot)  #find predicate in the wiki
+
+    def big_number(self,num1,num2):
+        if num1 > num2:
+            return num1
+        else:
+            return num2
+        
+    def exercise1_3(self,num1,num2,num3):
+        big_num = self.big_number(num1,num2)
+        if num3 > self.big_number(num1,num2):
+            return (num3 ** 2) + (big_num ** 2)
+        else:
+            if num2 > num3 and num1 > num3:
+                return (num1 ** 2) + (num2 ** 2)
+            
+    def get_answer(self):
+        answer =  self.exercise1_3(4,6,3)
+        print(answer)
+            
+       
+
 
     
 
                                                                                                                                                                                                             
 element_instance = element()
 element_instance.exp_square(5)
+element_instance.get_answer()
