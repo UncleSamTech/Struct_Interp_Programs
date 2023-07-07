@@ -65,31 +65,30 @@ class element:
             return a + (-(b))
         
     def check_guess_accuracy(self,guess,radicand):
-        return True if abs(radicand - (guess ** 2) <= 0.01) else False
+        diff = radicand - (guess ** 2)
+        return True if abs(diff) <= 0.01 else False
 
         
     def sqrt_guess_ex1_7(self,radicand,guess):
-
+        main_guess = 1
         if (self.check_guess_accuracy(guess,radicand)):
             return guess
         else:
             quotient = radicand  / guess
-            print('quot',quotient)
             main_guess = (quotient + guess) / 2
-            print('main_guess',main_guess)
             if self.check_guess_accuracy(main_guess,radicand):
                 return main_guess
             else:
-                quotient = radicand / main_guess
-                new_guess = (quotient + main_guess) / 2
-                return self.sqrt_guess_ex1_7(new_guess,radicand)
+                quotient_2 = radicand / main_guess
+                new_guess = (quotient_2 + main_guess) / 2
+                return self.sqrt_guess_ex1_7(radicand,new_guess)
          
 
 
     def get_answer(self):
         answer =  self.exercise1_3(4,6,3)
         answer2 = self.exercise1_4(2,21)
-        guess = self.sqrt_guess_ex1_7(200,2)
+        guess = self.sqrt_guess_ex1_7(5329,2)
         print(guess)
         print(answer2)
         print(answer)
