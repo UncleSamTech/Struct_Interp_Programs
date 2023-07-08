@@ -68,13 +68,9 @@ class element:
         diff = radicand - (guess ** 2)
         return True if abs(diff) <= 0.001 else False
     
-    def check_better_aprox(self,x,y):
-        return (x / (y ** 2) + 2 * y) / 3
     
     def check_guess_accuracy_cube_root(self,guess,value):
         diff = value - (guess ** 3)
-        print('diff_cube',diff)
-        print('abs diff cube', abs(diff))
         return True if abs(diff) <= 0.001 else False
 
         
@@ -93,24 +89,16 @@ class element:
                 return self.sqrt_guess_ex1_7(radicand,new_guess)
     
     def exercise_1_8(self,radicand,guess):
-        main_guess = 1
+        res = 1
         if self.check_guess_accuracy_cube_root(guess,radicand):
-        #and abs(guess - self.check_better_aprox(radicand,guess) <= 0.001):
             return guess
         
         else:
-            quotient = radicand / guess
-            main_guess  = (quotient + guess) / 2
-            if self.check_guess_accuracy_cube_root(main_guess,radicand): 
-            #and abs(guess - self.check_better_aprox(radicand,main_guess) <= 0.001):
-                return main_guess
+            res  = (radicand / (guess ** 2) + 2 * guess) / 3
+            if self.check_guess_accuracy_cube_root(res,radicand): 
+                return res
             else:
-                quotient2 = radicand / main_guess
-                print('quotient2', quotient2)
-                new_guess = (quotient2 + main_guess) / 2
-                return self.exercise_1_8(radicand,new_guess)
-                #print('new guess cube', new_guess)
-                #return new_guess
+                return self.exercise_1_8(radicand,res)
         
             
         
@@ -121,8 +109,8 @@ class element:
         answer =  self.exercise1_3(4,6,3)
         answer2 = self.exercise1_4(2,21)
         guess = self.sqrt_guess_ex1_7(9,2)
-        cube_guess = self.exercise_1_8(125,2)
-        print(cube_guess)
+        cube_guess = self.exercise_1_8(216,2)
+        print('cube',cube_guess)
         print(guess)
         print(answer2)
         print(answer)
