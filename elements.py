@@ -54,9 +54,6 @@ class element:
         else:
             return self.square_sum_num_larger(num1,num2)
             
-  
-            
-       
 
     def exercise1_4(self,a,b):
         if (b > 0):
@@ -100,9 +97,11 @@ class element:
             else:
                 return self.exercise_1_8(radicand,res)
         
-            
-        
-         
+    
+    def fact_recurs(self,n):
+        while n > 1:
+            return n * self.fact_recurs(n - 1)
+        return n
 
 
     def get_answer(self):
@@ -111,11 +110,14 @@ class element:
         guess = self.sqrt_guess_ex1_7(9,2)
         cube_guess = self.exercise_1_8(216,2)
         value_num = self.exercise_1_3(2,4,5)
+        fact_res = self.fact_recurs(6)
         print('cube',cube_guess)
         print(guess)
         print(answer2)
-        
+        print('factorial',fact_res)
         print('res',value_num)
+
+
     
 
                                                                                                                                                                                                             
