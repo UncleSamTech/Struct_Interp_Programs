@@ -41,18 +41,18 @@ class element:
         numerator = (5 + 4 + (2 - (3 - (6 + (4/5)))))
         denominator = 3 * (6 -2) * (2 -7)
         quot = numerator / denominator
-        print(quot)  #find predicate in the wiki
+        print(quot)  #find predicate in the wiki  
 
-    def big_number(self,num1,num2):
-        return max(num1,num2)
-        
-    def exercise1_3(self,num1,num2,num3):
-        big_num = self.big_number(num1,num2)
-        if num3 > big_num:
-            return (num3 ** 2) + (big_num ** 2)
+    def square_sum_num_larger(self,num1,num2):
+        return (num1 ** 2) + (num2 ** 2)
+
+    def exercise_1_3(self,num1,num2,num3):
+        if min(num1,num2,num3) is num1:
+            return self.square_sum_num_larger(num2,num3)
+        elif min(num1,num2,num3) is num2:
+            return self.square_sum_num_larger(num1,num3)
         else:
-            if max(num2,num3) == num2 and max(num1 , num3) == num1:
-                return (num1 ** 2) + (num2 ** 2)
+            return self.square_sum_num_larger(num1,num2)
             
   
             
@@ -106,14 +106,16 @@ class element:
 
 
     def get_answer(self):
-        answer =  self.exercise1_3(4,6,3)
+        
         answer2 = self.exercise1_4(2,21)
         guess = self.sqrt_guess_ex1_7(9,2)
         cube_guess = self.exercise_1_8(216,2)
+        value_num = self.exercise_1_3(2,4,5)
         print('cube',cube_guess)
         print(guess)
         print(answer2)
-        print(answer)
+        
+        print('res',value_num)
     
 
                                                                                                                                                                                                             
