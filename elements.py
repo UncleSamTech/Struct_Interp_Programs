@@ -103,6 +103,32 @@ class element:
             return n * self.fact_recurs(n - 1)
         return n
 
+    def fact_iter(self,n):
+        counter  = 1
+        res = 1
+        while counter < n:
+            res = counter * res
+            counter += 1
+            print(res)
+        return res
+    
+    def exercise_1_9(self,a,b):
+        if a == 0:
+            return b
+        a -= 1 
+        res = (a + b)
+        res += 1
+        print(res)
+        return res
+    
+    def exercise_1_9_2(self,a,b):
+        if a == 0:
+            return b
+        a -= 1
+        b += 1
+        return a + b
+        pass
+
 
     def get_answer(self):
         
@@ -110,11 +136,17 @@ class element:
         guess = self.sqrt_guess_ex1_7(9,2)
         cube_guess = self.exercise_1_8(216,2)
         value_num = self.exercise_1_3(2,4,5)
-        fact_res = self.fact_recurs(6)
+        fact_res = self.fact_recurs(7)
+        fact_iter = self.fact_iter(6)
+        inc_ex =  self.exercise_1_9(4,5)
+        inc_ex2 =  self.exercise_1_9_2(4,5)
         print('cube',cube_guess)
         print(guess)
         print(answer2)
         print('factorial',fact_res)
+        print('fact_iter',fact_iter)
+        print('sum_inc',inc_ex)
+        print('sum_inc2',inc_ex2)
         print('res',value_num)
 
 
