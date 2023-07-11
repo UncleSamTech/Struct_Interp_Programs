@@ -127,7 +127,7 @@ class element:
         a -= 1
         b += 1
         return a + b
-        pass
+        
     def exercise_1_10(self,A,x,y):
         if y == 0:
            return 0 
@@ -138,7 +138,28 @@ class element:
         else:
             return self.exercise_1_10(A,x-1,(self.exercise_1_10(A,x,y-1)))
 
-        pass
+    def exercise_10_fn(self,A,num,n):
+        return num * n * A
+    
+    def fib_series(self,series_number):
+        if isinstance(series_number,list) and len(series_number) > 0:
+            next_val = series_number[-1] + series_number[-2]
+            print(next_val)
+            return next_val
+            pass
+        else:
+            if series_number == 0 or series_number == 1:
+                return series_number
+
+    def fib_rec_next_number(self,a,b,count):
+        if count == 0:
+            return a
+        return self.fib_rec((a+b),a,(count -  1))
+        
+    def fib_rec_prev_number(self,a,b,count):
+        if count == 0:
+            return b
+        return self.fib_rec_prev_number((a+b),a,count - 1)
 
     def get_answer(self):
         
@@ -153,10 +174,16 @@ class element:
         ex_10 = self.exercise_1_10('A',1,10)
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
+        ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
+        ex_fib_ser = self.fib_series([2,3,4])
+        fib_rec = self.fib_rec(1,0,4)
+        print('fib_series', ex_fib_ser)
+        print('fib_rec',fib_rec)
         print('cube',cube_guess)
         print('ex_10',ex_10)
         print('ex_10_2',ex_10_2)
         print('ex_10_3',ex_10_3)
+        print('ex_10_fn',ex_10_fn)
         print(guess)
         print(answer2)
         print('factorial',fact_res)
