@@ -128,7 +128,17 @@ class element:
         b += 1
         return a + b
         pass
+    def exercise_1_10(self,A,x,y):
+        if y == 0:
+           return 0 
+        elif x == 0:
+            return 2 * y
+        elif y == 1:
+            return 2
+        else:
+            return self.exercise_1_10(A,x-1,(self.exercise_1_10(A,x,y-1)))
 
+        pass
 
     def get_answer(self):
         
@@ -140,7 +150,13 @@ class element:
         fact_iter = self.fact_iter(6)
         inc_ex =  self.exercise_1_9(4,5)
         inc_ex2 =  self.exercise_1_9_2(4,5)
+        ex_10 = self.exercise_1_10('A',1,10)
+        ex_10_2 = self.exercise_1_10('A',2,4)
+        ex_10_3 = self.exercise_1_10('A',3,3)
         print('cube',cube_guess)
+        print('ex_10',ex_10)
+        print('ex_10_2',ex_10_2)
+        print('ex_10_3',ex_10_3)
         print(guess)
         print(answer2)
         print('factorial',fact_res)
