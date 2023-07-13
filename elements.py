@@ -160,6 +160,13 @@ class element:
         if count == 0:
             return b
         return self.fib_rec_prev_number((a+b),a,count - 1)
+    
+    def exer_1_11(self,n):
+        if n < 3:
+            return n
+        else:
+            return (self.exer_1_11(n-1)) + (2 * self.exer_1_11(n-2)) + (3 * self.exer_1_11(n - 3))
+        
 
     def get_answer(self):
         
@@ -176,9 +183,9 @@ class element:
         ex_10_3 = self.exercise_1_10('A',3,3)
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
         ex_fib_ser = self.fib_series([2,3,4])
-        fib_rec = self.fib_rec(1,0,4)
+        fib_rec_ex1_11 =  self.exer_1_11(4)
         print('fib_series', ex_fib_ser)
-        print('fib_rec',fib_rec)
+        print('fib_number' , fib_rec_ex1_11)
         print('cube',cube_guess)
         print('ex_10',ex_10)
         print('ex_10_2',ex_10_2)
