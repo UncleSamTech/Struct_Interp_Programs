@@ -166,6 +166,16 @@ class element:
             return n
         else:
             return (self.exer_1_11(n-1)) + (2 * self.exer_1_11(n-2)) + (3 * self.exer_1_11(n - 3))
+    
+    def exer_1_11_iterative(self,n):
+        if n < 3:
+            return  n
+        else:
+            while n >= 3:
+               return (n -1) + (2 * (n - 2)) + (3 * (n -3))
+        
+                
+
         
 
     def get_answer(self):
@@ -183,9 +193,11 @@ class element:
         ex_10_3 = self.exercise_1_10('A',3,3)
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
         ex_fib_ser = self.fib_series([2,3,4])
-        fib_rec_ex1_11 =  self.exer_1_11(4)
+        fib_rec_ex1_11 =  self.exer_1_11(5)
+        fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
         print('fib_series', ex_fib_ser)
         print('fib_number' , fib_rec_ex1_11)
+        print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('cube',cube_guess)
         print('ex_10',ex_10)
         print('ex_10_2',ex_10_2)
