@@ -174,8 +174,27 @@ class element:
             while n >= 3:
                return (n -1) + (2 * (n - 2)) + (3 * (n -3))
         
-                
+    def first_denom_kind_coins(self,kind_of_coins):
+        if kind_of_coins == 1:
+            return 1
+        elif kind_of_coins == 2:
+            return 5
+        elif kind_of_coins == 3:
+            return 10
+        elif kind_of_coins == 4:
+            return 25
+        elif kind_of_coins == 5:
+            return 50
+        
+    def change_coins(self,cc,amount,kinds_of_coins):
+        if amount == 0:
+            return 1
+        elif amount < 0 or kinds_of_coins == 0:
+            return 0
+        else:
+           return self.change_coins(cc,amount,(kinds_of_coins -1)) + self.change_coins(cc,(amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
 
+  
         
 
     def get_answer(self):
@@ -195,7 +214,10 @@ class element:
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
+        kind_of_coins = self.change_coins(2,10,3)
+        
         print('fib_series', ex_fib_ser)
+        print('change_coins', kind_of_coins)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('cube',cube_guess)
