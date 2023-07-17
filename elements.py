@@ -198,7 +198,7 @@ class element:
         if arr_num == 1:
             return [[1]]
         elif arr_num == 0:
-            return []
+            return [] 
         else:
             result = self.pascal_recurs(arr_num - 1)
             last_row = result[-1]
@@ -229,7 +229,7 @@ class element:
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
         kind_of_coins = self.change_coins(2,100,3)
-        pasc_rec = self.pascal_recurs(5)
+        pasc_rec = self.pascal_recurs(3)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
         print('fib_number' , fib_rec_ex1_11)
