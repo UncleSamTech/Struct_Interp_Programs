@@ -214,7 +214,7 @@ class element:
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
-        kind_of_coins = self.change_coins(2,10,3)
+        kind_of_coins = self.change_coins(2,100,3)
         
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
