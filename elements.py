@@ -171,8 +171,7 @@ class element:
         if n < 3:
             return  n
         else:
-            while n >= 3:
-               return (n -1) + (2 * (n - 2)) + (3 * (n -3))
+            return (n -1) + (2 * (n - 2)) + (3 * (n -3))
         
     def first_denom_kind_coins(self,kind_of_coins):
         if kind_of_coins == 1:
@@ -194,8 +193,23 @@ class element:
         else:
            return self.change_coins(cc,amount,(kinds_of_coins -1)) + self.change_coins(cc,(amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
 
-  
-        
+    def pascal_recurs(self,arr_num):
+        main_row = [1]
+        if arr_num == 1:
+            return [[1]]
+        elif arr_num == 0:
+            return []
+        else:
+            result = self.pascal_recurs(arr_num - 1)
+            last_row = result[-1]
+            for i in range(len(last_row) - 1):
+                main_row.append(last_row[i]+ last_row[i +1])
+            main_row += [1]
+            result.append(main_row)
+            return result
+
+
+         
 
     def get_answer(self):
         
@@ -215,11 +229,12 @@ class element:
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
         kind_of_coins = self.change_coins(2,100,3)
-        
+        pasc_rec = self.pascal_recurs(5)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
+        print('pasc_rec',pasc_rec)
         print('cube',cube_guess)
         print('ex_10',ex_10)
         print('ex_10_2',ex_10_2)
