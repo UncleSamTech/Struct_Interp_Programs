@@ -1,4 +1,8 @@
 import os
+import json
+from pathlib import Path
+import uuid
+from treelib import Tree
 
 class element:
 
@@ -146,7 +150,7 @@ class element:
             next_val = series_number[-1] + series_number[-2]
             print(next_val)
             return next_val
-            pass
+
         else:
             if series_number == 0 or series_number == 1:
                 return series_number
@@ -185,13 +189,13 @@ class element:
         elif kind_of_coins == 5:
             return 50
         
-    def change_coins(self,cc,amount,kinds_of_coins):
+    def change_coins(self,amount,kinds_of_coins):
         if amount == 0:
             return 1
         elif amount < 0 or kinds_of_coins == 0:
             return 0
         else:
-           return self.change_coins(cc,amount,(kinds_of_coins -1)) + self.change_coins(cc,(amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
+           return self.change_coins(amount,(kinds_of_coins -1)) + self.change_coins((amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
 
     def pascal_recurs(self,arr_num):
         main_row = [1]
@@ -209,7 +213,29 @@ class element:
             return result
 
 
-         
+    def exer_1_13(self):
+        pass
+
+    def recursive_json(self,json_data):
+       
+       
+       if isinstance(json_data,dict) and bool(json_data):
+           for key, values in json_data.items():
+               if isinstance(values,dict):
+                   self.recursive_json(values)
+               elif isinstance(values,list):
+                   for each_value in  values:
+                       if isinstance(each_value,dict):
+                           for inner_keys,inner_value in each_value.items():
+                               self.recursive_json(inner_value)
+               else:
+                   print(key)
+                   print(values)
+       
+       
+      
+
+
 
     def get_answer(self):
         
@@ -228,10 +254,14 @@ class element:
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
-        kind_of_coins = self.change_coins(2,100,3)
+        kind_of_coins = self.change_coins(0.11,3)
         pasc_rec = self.pascal_recurs(3)
+        data =  Path("actual_response.json").read_text()
+        json_val = json.dumps(data)
+        rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
+        print(rec_json)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('pasc_rec',pasc_rec)
@@ -247,6 +277,7 @@ class element:
         print('sum_inc',inc_ex)
         print('sum_inc2',inc_ex2)
         print('res',value_num)
+
 
 
     
