@@ -226,10 +226,13 @@ class element:
                elif isinstance(values,list):
                    for each_value in  values:
                        if isinstance(each_value,dict):
-                           for inner_keys,inner_value in each_value.items():
-                               self.recursive_json(inner_value)
+                           self.recursive_json(each_value)
+                       elif isinstance(each_value,list):
+                           for any_val in each_value:
+                               if isinstance(any_val,dict):
+                                   self.recursive_json(any_val)
                else:
-                   print('key',key)
+                   print(key,'->', values)
                    
        
        
@@ -258,7 +261,6 @@ class element:
         pasc_rec = self.pascal_recurs(3)
         data =  Path("actual_response.json").read_text()
         json_val = json.loads(data)
-        print(json_val)
         rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
