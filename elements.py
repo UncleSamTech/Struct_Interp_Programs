@@ -229,8 +229,8 @@ class element:
                            for inner_keys,inner_value in each_value.items():
                                self.recursive_json(inner_value)
                else:
-                   print(key)
-                   print(values)
+                   print('key',key)
+                   
        
        
       
@@ -257,7 +257,8 @@ class element:
         kind_of_coins = self.change_coins(0.11,3)
         pasc_rec = self.pascal_recurs(3)
         data =  Path("actual_response.json").read_text()
-        json_val = json.dumps(data)
+        json_val = json.loads(data)
+        print(json_val)
         rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
