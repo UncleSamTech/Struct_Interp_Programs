@@ -230,6 +230,48 @@ class element:
         val = self.px(self.eval_sin_angle_ex_1_15(angle / 3))
         print('sin_eval_count',val)
         return val
+    
+    def exp_fxn(self,b,n):
+        if n == 0:
+            return 1
+        else:
+            return b * self.exp_fxn(b,n -1)
+
+    def exp_iter(self,b,counter,product):
+        if counter == 0:
+            return product
+        return self.exp_iter(b,(counter - 1),(product * b))
+    
+    def exp_fxn_iter(self,b,n):
+        return self.exp_iter(b,n,1)
+
+    def is_even(self,n):
+        return True if n % 2 == 0 else False
+    
+    def fast_exp(self,b,n):
+        val = 1
+        if n == 0:
+            val = 1
+            return val
+        if self.is_even(n):
+            val =  (self.fast_exp(b,(n / 2))) ** 2
+            print(val)
+            return val
+        else:
+            val = b * (self.fast_exp(b,(n-1)))
+            print(val)
+            return val
+        
+    def gcd(self,num1,num2):
+       if num2 == 0:
+           return num1
+       else:
+           val = self.gcd(num2, (num1 % num2))
+           print(val)
+       return val
+       
+
+
 
 
     def recursive_json(self,json_data):
@@ -273,15 +315,23 @@ class element:
         ex_10 = self.exercise_1_10('A',1,10)
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
+        gcd_sim = self.gcd(40,6)
+        print('gcd',gcd_sim)
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
         kind_of_coins = self.change_coins(11,3)
         pasc_rec = self.pascal_recurs(3)
+        fast_exp =  self.fast_exp(2,1000)
+        print('fast_exp', fast_exp)
         data =  Path("actual_response.json").read_text()
         json_val = json.loads(data)
         sin_ang = self.eval_sin_angle_ex_1_15(12.15)
+        exp_rec = self.exp_fxn(2,4)
+        print('exp_rec',exp_rec)
+        exp_iter = self.exp_fxn_iter(2,4)
+        print('exp_iter',exp_iter)
         print(sin_ang)
         #rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
