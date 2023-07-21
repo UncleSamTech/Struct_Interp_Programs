@@ -195,7 +195,9 @@ class element:
         elif amount < 0 or kinds_of_coins == 0:
             return 0
         else:
-           return self.change_coins(amount,(kinds_of_coins -1)) + self.change_coins((amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
+           val =  self.change_coins(amount,(kinds_of_coins -1)) + self.change_coins((amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
+           print('val_process', val)
+           return val
 
     def pascal_recurs(self,arr_num):
         main_row = [1]
@@ -216,6 +218,20 @@ class element:
     def exer_1_13(self):
         pass
 
+    def cube_x(self,x):
+        return x ** 3
+    
+    def px(self,x):
+        return (3 * x) - (4 * self.cube_x(x))
+    
+    def eval_sin_angle_ex_1_15(self,angle):
+        if not abs(angle > 0.1):
+            return angle
+        val = self.px(self.eval_sin_angle_ex_1_15(angle / 3))
+        print('sin_eval_count',val)
+        return val
+
+
     def recursive_json(self,json_data):
        
        
@@ -231,6 +247,10 @@ class element:
                            for any_val in each_value:
                                if isinstance(any_val,dict):
                                    self.recursive_json(any_val)
+                               elif isinstance(any_val,list):
+                                   for an_val in any_val:
+                                       if isinstance(an_val,dict):
+                                           self.recursive_json(an_val)
                else:
                    print(key,'->', values)
                    
@@ -257,14 +277,16 @@ class element:
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
         fib_rec_ex1_11_ite = self.exer_1_11_iterative(5)
-        kind_of_coins = self.change_coins(0.11,3)
+        kind_of_coins = self.change_coins(11,3)
         pasc_rec = self.pascal_recurs(3)
         data =  Path("actual_response.json").read_text()
         json_val = json.loads(data)
-        rec_json =  self.recursive_json(json_val)
+        sin_ang = self.eval_sin_angle_ex_1_15(12.15)
+        print(sin_ang)
+        #rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
-        print(rec_json)
+        #print(rec_json)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('pasc_rec',pasc_rec)
