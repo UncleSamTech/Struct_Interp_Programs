@@ -113,7 +113,6 @@ class element:
         while counter < n:
             res = counter * res
             counter += 1
-            print(res)
         return res
     
     def exercise_1_9(self,a,b):
@@ -196,7 +195,6 @@ class element:
             return 0
         else:
            val =  self.change_coins(amount,(kinds_of_coins -1)) + self.change_coins((amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
-           print('val_process', val)
            return val
 
     def pascal_recurs(self,arr_num):
@@ -228,7 +226,6 @@ class element:
         if not abs(angle > 0.1):
             return angle
         val = self.px(self.eval_sin_angle_ex_1_15(angle / 3))
-        print('sin_eval_count',val)
         return val
     
     def exp_fxn(self,b,n):
@@ -255,11 +252,9 @@ class element:
             return val
         if self.is_even(n):
             val =  (self.fast_exp(b,(n / 2))) ** 2
-            print(val)
             return val
         else:
             val = b * (self.fast_exp(b,(n-1)))
-            print(val)
             return val
         
     def gcd(self,num1,num2):
@@ -267,7 +262,6 @@ class element:
            return num1
        else:
            val = self.gcd(num2, (num1 % num2))
-           print(val)
        return val
        
 
