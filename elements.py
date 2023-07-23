@@ -261,12 +261,26 @@ class element:
        if num2 == 0:
            return num1
        else:
-           val = self.gcd(num2, (num1 % num2))
+           rem = num1 % num2
+           print('rem',rem)
+           val = self.gcd(num2, (rem))
+           print('val',val)
        return val
        
+    
+    def divides(self,a,b):
+        return True if b % a == 0 else False
 
-
-
+    def find_divisor(self,n,test_divisor):
+        if test_divisor ** 2 > n:
+            return n
+        elif self.divides(test_divisor,n):
+            return test_divisor
+        else:
+            return self.find_divisor(n,(test_divisor + 1))
+        
+    def smallest_divisor(self,n):
+        return True if self.find_divisor(n) == n else False
 
     def recursive_json(self,json_data):
        
@@ -309,7 +323,7 @@ class element:
         ex_10 = self.exercise_1_10('A',1,10)
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
-        gcd_sim = self.gcd(40,6)
+        gcd_sim = self.gcd(206,40)
         print('gcd',gcd_sim)
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
         ex_fib_ser = self.fib_series([2,3,4])
