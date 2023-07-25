@@ -291,14 +291,15 @@ class element:
     def recursive_json(self,json_data):
        if isinstance(json_data,dict) and bool(json_data):
            for key, values in json_data.items():
-               if isinstance(values,dict):
+               if isinstance(values,dict) and bool(values):
                    self.recursive_json(values)
-               elif isinstance(values,list):
+               elif isinstance(values,list) and len(values) > 0:
                    for each_value in  values:
-                       if isinstance(each_value,dict):
-                           self.recursive_json(each_value)
+                       if isinstance(each_value,dict) and bool(each_value):
+                            self.recursive_json(each_value)
                else:
                    print(key,'->', values)
+                   
                    
        
        
