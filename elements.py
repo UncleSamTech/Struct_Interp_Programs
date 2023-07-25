@@ -295,8 +295,7 @@ class element:
                    self.recursive_json(values)
                elif isinstance(values,list) and len(values) > 0:
                    for each_value in  values:
-                       if isinstance(each_value,dict) and bool(each_value):
-                            self.recursive_json(each_value)
+                        self.recursive_json(each_value)
                else:
                    print(key,'->', values)
                    
