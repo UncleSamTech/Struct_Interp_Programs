@@ -272,7 +272,7 @@ class element:
         return True if b % a == 0 else False
 
     def find_divisor(self,n,test_divisor):
-        if test_divisor ** 2 > n:
+        if test_divisor % 2 > n:
             return n
         elif self.divides(test_divisor,n):
             return test_divisor
@@ -281,6 +281,12 @@ class element:
         
     def smallest_divisor(self,n):
         return True if self.find_divisor(n) == n else False
+    
+    def fermat_test(self,base,n):
+        if n == 0:
+            return 1
+       
+
 
     def recursive_json(self,json_data):
        
@@ -293,14 +299,6 @@ class element:
                    for each_value in  values:
                        if isinstance(each_value,dict):
                            self.recursive_json(each_value)
-                       elif isinstance(each_value,list):
-                           for any_val in each_value:
-                               if isinstance(any_val,dict):
-                                   self.recursive_json(any_val)
-                               elif isinstance(any_val,list):
-                                   for an_val in any_val:
-                                       if isinstance(an_val,dict):
-                                           self.recursive_json(an_val)
                else:
                    print(key,'->', values)
                    
@@ -341,10 +339,10 @@ class element:
         exp_iter = self.exp_fxn_iter(2,4)
         print('exp_iter',exp_iter)
         print(sin_ang)
-        #rec_json =  self.recursive_json(json_val)
+        rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
-        #print(rec_json)
+        print(rec_json)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('pasc_rec',pasc_rec)
