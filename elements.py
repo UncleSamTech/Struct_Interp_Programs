@@ -289,8 +289,6 @@ class element:
 
 
     def recursive_json(self,json_data):
-       
-       
        if isinstance(json_data,dict) and bool(json_data):
            for key, values in json_data.items():
                if isinstance(values,dict):
