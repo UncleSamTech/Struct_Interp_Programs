@@ -347,7 +347,7 @@ class element:
     def mult_ration(self,num,denom):
         ration1 = rational(num,denom)
         ration2 = rational(denom,num)
-        return (ration1.get_num() * ration2.get_num()) / (ration1.get_den * ration2.get_den())
+        return (ration1.get_num() * ration2.get_num()) / (ration1.get_den() * ration2.get_den())
 
     def div_ration(self,num,denom):
         ration1 = rational(num,denom)
@@ -359,10 +359,11 @@ class element:
         ration2 = rational(denom,num)
 
         val = True if (ration1.get_num() * ration2.get_den()) == (ration2.get_num() * ration1.get_den()) else False
+        print('rational1', ration1.create_ration())
+        print('rational2', ration2.create_ration())
         return ration1.create_ration() == ration2.create_ration() if val else False
 
-    def sub_ration(self):
-        pass
+  
         
 
 
@@ -389,8 +390,16 @@ class element:
         kind_of_coins = self.change_coins(11,3)
         pasc_rec = self.pascal_recurs(3)
         fast_exp =  self.fast_exp(2,1000)
-        test_rat = self.add_rational(2,3)
-        print('rational',test_rat)
+        add_rat = self.add_rational(2,3)
+        print('add rational',add_rat)
+        sub_rat = self.sub_ration(2,3)
+        print('subtract rational', sub_rat)
+        mult_ration = self.mult_ration(3,2)
+        print('multiply rational', mult_ration)
+        div_ratio = self.div_ration(2,3)
+        print('divide rational',div_ratio)
+        eq_ration = self.check_ration_eq(2,3)
+        print('equality rational', eq_ration)
         print('fast_exp', fast_exp)
         data =  Path("actual_response.json").read_text()
         json_val = json.loads(data)
