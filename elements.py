@@ -2,7 +2,9 @@ import os
 import json
 from pathlib import Path
 import uuid
+from fractions import Fraction
 from treelib import Tree
+from ration_class import rational
 
 class element:
 
@@ -296,13 +298,52 @@ class element:
                elif isinstance(values,list) and len(values) > 0:
                    for each_value in  values:
                         self.recursive_json(each_value)
+               elif isinstance(values,str) or isinstance(values,int) or isinstance(values,bool):
+                   print(key,'->',values)
                else:
                    print(key,'->', values)
+       elif isinstance(json_data,list) and len(json_data) > 0:
+           for json_value in json_data:
+               self.recursive_json(json_value)
+       elif isinstance(json_data,str) or isinstance(json_data,int) or isinstance(json_data,bool):
+           print(json_data)
+       else:
+           print(json_data)
+           
+       
+           
+
+           
                    
                    
        
-       
+    def add_values(self,args):
+        sum = 0
+        sum += args
+        return sum
+        pass
+
+    def mult_values(self,args):
+        prod = 1
+        prod *= args
+        return prod
+        pass
+
+    def linear_comb(self,a,b,x,y):
+        self.add_values(self.mult_values(a,x),self.mult_values(b,y))
+        #pass
       
+    
+    def add_rational(self,num,denom):
+        ration1 = rational(num,denom)
+        ration2 = rational(denom,num)
+        return  (ration1.get_num() * ration2.get_den()) + (ration2.get_num() * ration1.get_den()) / (ration1.get_den() * ration2.get_den())
+        
+        
+
+    def sub_ration(self):
+        pass
+        
 
 
 
@@ -328,6 +369,8 @@ class element:
         kind_of_coins = self.change_coins(11,3)
         pasc_rec = self.pascal_recurs(3)
         fast_exp =  self.fast_exp(2,1000)
+        test_rat = self.add_rational(2,3)
+        print('rational',test_rat)
         print('fast_exp', fast_exp)
         data =  Path("actual_response.json").read_text()
         json_val = json.loads(data)
