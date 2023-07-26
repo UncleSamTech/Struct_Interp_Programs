@@ -338,8 +338,28 @@ class element:
         ration1 = rational(num,denom)
         ration2 = rational(denom,num)
         return  (ration1.get_num() * ration2.get_den()) + (ration2.get_num() * ration1.get_den()) / (ration1.get_den() * ration2.get_den())
+    
+    def sub_ration(self,num,denom):
+        ration1 = rational(num,denom)
+        ration2 = rational(denom,num)
+        return  (ration1.get_num() * ration2.get_den()) - (ration2.get_num() * ration1.get_den()) / (ration1.get_den() * ration2.get_den())
         
-        
+    def mult_ration(self,num,denom):
+        ration1 = rational(num,denom)
+        ration2 = rational(denom,num)
+        return (ration1.get_num() * ration2.get_num()) / (ration1.get_den * ration2.get_den())
+
+    def div_ration(self,num,denom):
+        ration1 = rational(num,denom)
+        ration2 = rational(denom,num)
+        return (ration1.get_num() * ration2.get_den()) / (ration1.get_den() * ration2.get_num())
+
+    def check_ration_eq(self,num,denom):
+        ration1 = rational(num,denom)
+        ration2 = rational(denom,num)
+
+        val = True if (ration1.get_num() * ration2.get_den()) == (ration2.get_num() * ration1.get_den()) else False
+        return ration1.create_ration() == ration2.create_ration() if val else False
 
     def sub_ration(self):
         pass
