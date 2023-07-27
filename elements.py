@@ -362,6 +362,9 @@ class element:
         print('rational1', ration1.display_ration(num,denom))
         print('rational2', ration2.display_ration(denom,num))
         return ration1.create_ration() == ration2.create_ration() if val else False
+    
+
+   
 
     
     
@@ -405,6 +408,8 @@ class element:
         sin_ang = self.eval_sin_angle_ex_1_15(12.15)
         exp_rec = self.exp_fxn(2,4)
         print('exp_rec',exp_rec)
+        ration = rational(2,78)
+        print('rat_red',ration.create_ration_red())
         exp_iter = self.exp_fxn_iter(2,4)
         print('exp_iter',exp_iter)
         print(sin_ang)
