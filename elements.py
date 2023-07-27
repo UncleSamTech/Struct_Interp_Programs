@@ -359,8 +359,8 @@ class element:
         ration2 = rational(denom,num)
 
         val = True if (ration1.get_num() * ration2.get_den()) == (ration2.get_num() * ration1.get_den()) else False
-        print('rational1', ration1.display_ration())
-        print('rational2', ration2.display_ration())
+        print('rational1', ration1.display_ration(ration1.get_num(),ration1.get_den()))
+        print('rational2', ration2.display_ration(ration2.get_num(),ration2.get_den()))
         return ration1.create_ration() == ration2.create_ration() if val else False
 
     

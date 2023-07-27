@@ -19,11 +19,13 @@ class rational:
     def get_den(self):
         return self.denom
         
-    def display_ration(self):
-        if self.get_num() > 0 and self.get_den() > 0:
-            return str(self.get_num()) + '/' + str(self.get_den())
-        elif self.get_num() < 0 or self.get_den() < 0:
-            return str(-self.get_num()) + '/' + str(abs(self.get_den()))
+    def display_ration(self,num,denom):
+        if num > 0 and denom > 0:
+            return str(num) + '/' + str(denom)
+        elif num < 0 or denom < 0:
+            return str(-num) + '/' + str(abs(denom))
+        else:
+            return 'invalid rational number'
 
    
         
