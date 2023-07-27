@@ -22,7 +22,9 @@ class rational:
     def display_ration(self,num,denom):
         if num > 0 and denom > 0:
             return str(num) + '/' + str(denom)
-        elif num < 0 or denom < 0:
+        elif num < 0 and denom > 0:
+            return str(-num) + '/' + str(denom)
+        elif num > 0 and denom < 0:
             return str(-num) + '/' + str(abs(denom))
         else:
             return 'invalid rational number'
