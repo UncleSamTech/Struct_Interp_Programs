@@ -359,8 +359,8 @@ class element:
         ration2 = rational(denom,num)
 
         val = True if (ration1.get_num() * ration2.get_den()) == (ration2.get_num() * ration1.get_den()) else False
-        print('rational1', ration1.display_ration(ration1.get_num(),ration1.get_den()))
-        print('rational2', ration2.display_ration(ration2.get_num(),ration2.get_den()))
+        print('rational1', ration1.display_ration(num,denom))
+        print('rational2', ration2.display_ration(denom,num))
         return ration1.create_ration() == ration2.create_ration() if val else False
 
     
@@ -397,7 +397,7 @@ class element:
         print('multiply rational', mult_ration)
         div_ratio = self.div_ration(2,3)
         print('divide rational',div_ratio)
-        eq_ration = self.check_ration_eq(-2,3)
+        eq_ration = self.check_ration_eq(2,3)
         print('equality rational', eq_ration)
         print('fast_exp', fast_exp)
         data =  Path("actual_response.json").read_text()
