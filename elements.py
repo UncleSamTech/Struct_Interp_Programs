@@ -284,11 +284,6 @@ class element:
     def smallest_divisor(self,n):
         return True if self.find_divisor(n) == n else False
     
-    def fermat_test(self,base,n):
-        if n == 0:
-            return 1
-       
-
 
     def recursive_json(self,json_data):
        if isinstance(json_data,dict) and bool(json_data):
@@ -361,6 +356,7 @@ class element:
         val = True if (ration1.get_num() * ration2.get_den()) == (ration2.get_num() * ration1.get_den()) else False
         print('rational1', ration1.display_ration(num,denom))
         print('rational2', ration2.display_ration(denom,num))
+        print('rational3_red',ration1.create_ration_red())
         return ration1.create_ration() == ration2.create_ration() if val else False
     
 
@@ -400,7 +396,7 @@ class element:
         print('multiply rational', mult_ration)
         div_ratio = self.div_ration(2,3)
         print('divide rational',div_ratio)
-        eq_ration = self.check_ration_eq(2,3)
+        eq_ration = self.check_ration_eq(8,12)
         print('equality rational', eq_ration)
         print('fast_exp', fast_exp)
         data =  Path("actual_response.json").read_text()
