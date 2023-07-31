@@ -368,8 +368,10 @@ class element:
         return val
         
     def rect_check(self):
-        rect_check = rectangle()
-        return rect_check.per(2,6,8,6,2,-6,8,6)
+        rect_check = rectangle(2,8,6,-6)
+        area =  rect_check.area_rec()
+        print('area',area)
+        return rect_check.per_rec()
 
     
     
