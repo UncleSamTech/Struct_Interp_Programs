@@ -4,6 +4,7 @@ from pathlib import Path
 import uuid
 from fractions import Fraction
 from treelib import Tree
+from points import line_point
 from ration_class import rational
 
 class element:
@@ -359,7 +360,12 @@ class element:
         print('rational3_red',ration1.create_ration_red())
         return ration1.create_ration() == ration2.create_ration() if val else False
     
-
+    def midpoint_segment(self,xpoint_start,ypoint_start,xpoint_end,ypoint_end):
+        lin_po = line_point()
+        val = lin_po.create_segment(xpoint_start,ypoint_start,xpoint_end,ypoint_end)
+        print('midpoint',lin_po.mid_point_seg(5,5,-5,5))
+        return val
+        
    
 
     
@@ -389,6 +395,8 @@ class element:
         pasc_rec = self.pascal_recurs(3)
         fast_exp =  self.fast_exp(2,1000)
         add_rat = self.add_rational(2,3)
+        seg_cls = self.midpoint_segment(5,-5,-5,5)
+        print('points_mid',seg_cls)
         print('add rational',add_rat)
         sub_rat = self.sub_ration(2,3)
         print('subtract rational', sub_rat)
