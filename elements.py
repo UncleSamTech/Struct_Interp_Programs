@@ -6,6 +6,7 @@ from fractions import Fraction
 from treelib import Tree
 from points import line_point
 from ration_class import rational
+from rectangle import rectangle
 
 class element:
 
@@ -366,7 +367,9 @@ class element:
         print('midpoint',lin_po.mid_point_seg(5,5,-5,5))
         return val
         
-   
+    def rect_check(self):
+        rect_check = rectangle()
+        return rect_check.per(2,6,8,6,2,-6,8,6)
 
     
     
@@ -387,6 +390,7 @@ class element:
         ex_10_3 = self.exercise_1_10('A',3,3)
         gcd_sim = self.gcd(206,40)
         print('gcd',gcd_sim)
+        print('rect_chk',self.rect_check())
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
         ex_fib_ser = self.fib_series([2,3,4])
         fib_rec_ex1_11 =  self.exer_1_11(5)
