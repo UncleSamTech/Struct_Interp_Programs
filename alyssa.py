@@ -30,6 +30,8 @@ class alyssa:
         max_inter = self.create_upper_bound(x) - self.create_lower_bound(y)
         return min_inter,max_inter
     
+
+    
     def mult_interval(self,x,y):
         p1 = self.create_lower_bound(x) * self.create_lower_bound(y)
         p2 = self.create_lower_bound(x) * self.create_upper_bound(y)
@@ -59,3 +61,16 @@ class alyssa:
         if self.sub_interval(x,y) > 0:
             return sum(self.sub_interval(x,y)) / 2
         
+    
+    def center(self,i):
+        return (self.create_lower_bound(i) + self.create_upper_bound(i)) / 2
+    
+    def width(self,i):
+        return (self.create_upper_bound(i) - self.create_lower_bound(i)) / 2
+
+    
+
+    def make_center_width(self,c,w):
+        val = self.make_interval((c-w),(c + w))
+
+        pass
