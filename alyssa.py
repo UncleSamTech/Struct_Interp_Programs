@@ -1,8 +1,5 @@
 class alyssa:
     def __init__(self):
-        self.resist1 = None
-        self.resist2 = None
-        self.para_equiv_res = None
         self.max_bound = None
         self.min_bound = None
         self.x = None
@@ -11,16 +8,27 @@ class alyssa:
     def compute_par_res(self):
         return 1 / ((1 / self.resist1) + (1/self.resist2))
     
-    def create_lower_bound(val):
-        return min(val)
+    def create_lower_bound(self,val):
+        return min(val) if isinstance(val,list) else val
         
-    def create_upper_bound(val):
-        return max(val)
+    def create_upper_bound(self,val):
+        return max(val) if isinstance(val,list) or isinstance(val,tuple) or isinstance(val,dict) else val
     
     def make_interval(self,x,y):
         self.min_bound = self.create_lower_bound(x) + self.create_upper_bound(y)
         self.max_bound = self.create_upper_bound(x) + self.create_lower_bound(y)
         return self.min_bound, self.max_bound
+    
+    def get_upper_bound(self,a,b):
+        return max(a,b)
+    
+    def get_lower_bound(self,a,b):
+        return min(a,b)
+    
+    def sub_interval(self,x,y):
+        min_inter = self.create_upper_bound(y) -  self.create_lower_bound(x)
+        max_inter = self.create_upper_bound(x) - self.create_lower_bound(y)
+        return min_inter,max_inter
     
     def mult_interval(self,x,y):
         p1 = self.create_lower_bound(x) * self.create_lower_bound(y)
@@ -33,8 +41,9 @@ class alyssa:
     def div_interv(self,x,y):
         return self.mult_interval(x,self.make_interval((self.create_upper_bound(y) / 1.0), (self.create_lower_bound(y)) / 1.0))
 
-    def interv_arith(self):
-        pass
+    def width_interv(self,x,y):
+        return sum(self.sub_interval(x,y)) / 2
+        
 
 
 

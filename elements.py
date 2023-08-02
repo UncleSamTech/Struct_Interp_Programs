@@ -7,6 +7,7 @@ from treelib import Tree
 from points import line_point
 from ration_class import rational
 from rectangle import rectangle
+from alyssa import alyssa
 
 class element:
 
@@ -375,7 +376,11 @@ class element:
 
     
     
-  
+    def alysa_check(self):
+        aly = alyssa()
+        x = [5,6,7,2,8,9]
+        y = [-1,-3,-5,-2,6,12,2]
+        return aly.width_interv(x,y)
 
     def get_answer(self):
         
@@ -391,6 +396,8 @@ class element:
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
         gcd_sim = self.gcd(206,40)
+        aly_chk = self.alysa_check()
+        print('alyssa_check' , aly_chk)
         print('gcd',gcd_sim)
         print('rect_chk',self.rect_check())
         ex_10_fn = self.exercise_10_fn(ex_10_3,1,2)
@@ -423,10 +430,10 @@ class element:
         exp_iter = self.exp_fxn_iter(2,4)
         print('exp_iter',exp_iter)
         print(sin_ang)
-        rec_json =  self.recursive_json(json_val)
+        #rec_json =  self.recursive_json(json_val)
         print('fib_series', ex_fib_ser)
         print('change_coins', kind_of_coins)
-        print(rec_json)
+        #print(rec_json)
         print('fib_number' , fib_rec_ex1_11)
         print('fib_number_ite' , fib_rec_ex1_11_ite)
         print('pasc_rec',pasc_rec)
