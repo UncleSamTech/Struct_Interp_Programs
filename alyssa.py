@@ -2,10 +2,14 @@ class alyssa:
     def __init__(self):
         self.max_bound = None
         self.min_bound = None
+        self.resist1 = None
+        self.resist2 = None
         self.x = None
         self.y = None
 
-    def compute_par_res(self):
+    def compute_par_res(self,x,y):
+        self.resist1 = x
+        self.resist2 = y
         return 1 / ((1 / self.resist1) + (1/self.resist2))
     
     def create_lower_bound(self,val):
@@ -68,7 +72,9 @@ class alyssa:
     def width(self,i):
         return (self.create_upper_bound(i) - self.create_lower_bound(i)) / 2
 
-    
-
     def make_center_width(self,c,w):
         return self.make_interval((c-w),(c + w))
+    
+
+    def make_center_percent(self):
+        pass
