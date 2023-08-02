@@ -380,6 +380,14 @@ class element:
         aly = alyssa()
         x = [5,6,7,2,8,9]
         y = [-1,-3,-5,-2,6,12,2]
+        z = [5,1,2,-3,4,-2]
+        h = [3,-2,-1,4,6,8,11]
+        width1 = aly.width_interv(x,y)
+        width2 = aly.width_interv(z,h)
+        print('width1',width1)
+        print('width2',width2)
+        val2 =  aly.width_interv(width1,width2)
+        print('width_funct',val2)
         return aly.width_interv(x,y)
 
     def get_answer(self):
