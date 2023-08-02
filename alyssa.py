@@ -35,7 +35,17 @@ class alyssa:
         p2 = self.create_lower_bound(x) * self.create_upper_bound(y)
         p3 = self.create_upper_bound(x) * self.create_lower_bound(y)
         p4 = self.create_upper_bound(x) * self.create_lower_bound(y)
-
+        p5 = self.create_upper_bound(x) * self.create_upper_bound(y)
+        first_min   = min(p1,p2)
+        sec_min = min(p3,p4)
+        third_min = min(first_min,sec_min)
+        final_min = min(third_min,p5)
+        first_max = max(p1,p2)
+        sec_max = max(p3,p4)
+        th_max = max(first_max,sec_max)
+        four_max = max(th_max,p5)
+        val =  self.make_interval(final_min,four_max)
+        print('broken down',val)
         return self.make_interval(min(p1,p2,p3,p4), max(p1,p2,p3,p4))
 
     def div_interv(self,x,y):
@@ -46,5 +56,6 @@ class alyssa:
         return "Error in division" if self.div_interv(x,y) == 0  else "Correct"
 
     def width_interv(self,x,y):
-        return sum(self.sub_interval(x,y)) / 2
+        if self.sub_interval(x,y) > 0:
+            return sum(self.sub_interval(x,y)) / 2
         
