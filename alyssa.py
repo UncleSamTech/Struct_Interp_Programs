@@ -71,6 +71,4 @@ class alyssa:
     
 
     def make_center_width(self,c,w):
-        val = self.make_interval((c-w),(c + w))
-
-        pass
+        return self.make_interval((c-w),(c + w))
