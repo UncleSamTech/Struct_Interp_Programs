@@ -39,12 +39,12 @@ class alyssa:
         return self.make_interval(min(p1,p2,p3,p4), max(p1,p2,p3,p4))
 
     def div_interv(self,x,y):
-        return self.mult_interval(x,self.make_interval((self.create_upper_bound(y) / 1.0), (self.create_lower_bound(y)) / 1.0))
+        val =  self.mult_interval(x,self.make_interval((self.create_upper_bound(y) / 1.0), (self.create_lower_bound(y)) / 1.0))
+        return val if val is not 0 else -1
+    
+    def check_div(self,x,y):
+        return "Error in division" if self.div_interv(x,y) == 0  else "Correct"
 
     def width_interv(self,x,y):
         return sum(self.sub_interval(x,y)) / 2
         
-
-
-
-
