@@ -388,6 +388,8 @@ class element:
         print('width2',width2)
         perc_check = aly.get_percent(20,30)
         print('perecent',perc_check)
+        aprox = aly.approx_perc(20,30)
+        print('aprox_check',aprox)
         val2 =  aly.width_interv(width1,width2)
         print('width_funct',val2)
         return aly.width_interv(x,y)

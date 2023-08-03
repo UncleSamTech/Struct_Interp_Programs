@@ -84,4 +84,15 @@ class alyssa:
 
     def make_center_percent(self,center,percent):
         return self.make_interval(center,percent)
-        
+    
+    def approx_perc(self,x,y):
+        val  =  self.mult_interval(x,y)
+        return self.get_percent(val[0],val[1])
+    
+    def lem_para(self,r1,r2):
+        return self.div_interv(self.mult_interval(r1,r2), self.make_interval(r1,r2))
+    
+    def lem_para2(self,r1,r2):
+        one = self.make_interval(1,1)
+        val =  self.div_interv(one,self.make_interval(self.div_interv(one,r1),self.div_interv(one,r2)))
+        return val
