@@ -397,8 +397,9 @@ class element:
     
     def hierach_check(self,val):
         hier = hierachy()
-        list_val = []
+        list_val = [2,3,4]
         print('list lenght', hier.list_length(list_val))
+        print('iter_list_lenght',hier.iter_list_length(list_val,0))
         return hier.view_square_val(val)
     
 
