@@ -7,7 +7,7 @@ class hierachy:
         if n == 0:
             return items[n]
         else:
-            return self.list_ref(items,n-1)
+            return self.list_ref(items[1:],n-1)
     
     def get_squares(self):
         return self.squares
