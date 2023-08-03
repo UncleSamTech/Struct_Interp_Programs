@@ -56,13 +56,13 @@ class alyssa:
 
     def div_interv(self,x,y):
         val =  self.mult_interval(x,self.make_interval((self.create_upper_bound(y) / 1.0), (self.create_lower_bound(y)) / 1.0))
-        return val if val is not 0 else -1
+        return val if val != 0 else -1
     
     def check_div(self,x,y):
         return "Error in division" if self.div_interv(x,y) == 0  else "Correct"
 
     def width_interv(self,x,y):
-        if self.sub_interval(x,y) > 0:
+        if self.sub_interval(x,y)[0] > 0 or self.sub_interval(x,y)[1] > 0:
             return sum(self.sub_interval(x,y)) / 2
         
     
@@ -75,6 +75,13 @@ class alyssa:
     def make_center_width(self,c,w):
         return self.make_interval((c-w),(c + w))
     
+    def get_percent(self,x,y):
+        val = 1
+        diff = self.create_upper_bound(y) - self.create_lower_bound(x)
+        if diff != 0:
+            val = diff / 2
+        return (val / (self.create_upper_bound(y) - val)) * 100
 
-    def make_center_percent(self):
-        pass
+    def make_center_percent(self,center,percent):
+        return self.make_interval(center,percent)
+        
