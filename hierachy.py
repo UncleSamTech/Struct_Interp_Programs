@@ -4,10 +4,7 @@ class hierachy:
         pass
 
     def list_ref(self,items,n):
-        if n == 0:
-            return items[n]
-        else:
-            return self.list_ref(items[1:],n-1)
+        return items[n] if n == 0 else self.list_ref(items[1:],n-1)
     
     def get_squares(self):
         return self.squares
