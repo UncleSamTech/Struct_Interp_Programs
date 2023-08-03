@@ -11,3 +11,7 @@ class hierachy:
     
     def view_square_val(self,posit):
         return self.list_ref(self.get_squares(),posit)
+    
+    def list_length(self,items):
+        return 0 if items is None or len(items) == 0 else self.list_length(items[1:]) + 1
+        

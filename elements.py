@@ -397,7 +397,10 @@ class element:
     
     def hierach_check(self,val):
         hier = hierachy()
+        list_val = []
+        print('list lenght', hier.list_length(list_val))
         return hier.view_square_val(val)
+    
 
 
     def get_answer(self):
