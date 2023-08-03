@@ -14,4 +14,7 @@ class hierachy:
     
     def list_length(self,items):
         return 0 if items is None or len(items) == 0 else self.list_length(items[1:]) + 1
+    
+    def iter_list_length(self,items,count):
+        return count if items is None or len(items) == 0 else self.iter_list_length(items[1:],count + 1)
         
