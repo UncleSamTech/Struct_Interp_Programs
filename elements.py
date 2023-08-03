@@ -8,6 +8,7 @@ from points import line_point
 from ration_class import rational
 from rectangle import rectangle
 from alyssa import alyssa
+from hierachy import hierachy
 
 class element:
 
@@ -393,6 +394,11 @@ class element:
         val2 =  aly.width_interv(width1,width2)
         print('width_funct',val2)
         return aly.width_interv(x,y)
+    
+    def hierach_check(self,val):
+        hier = hierachy()
+        return hier.view_square_val(val)
+
 
     def get_answer(self):
         
@@ -409,6 +415,8 @@ class element:
         ex_10_3 = self.exercise_1_10('A',3,3)
         gcd_sim = self.gcd(206,40)
         aly_chk = self.alysa_check()
+        hier_chk =  self.hierach_check(3)
+        print('hiera_chk',hier_chk)
         print('alyssa_check' , aly_chk)
         print('gcd',gcd_sim)
         print('rect_chk',self.rect_check())
