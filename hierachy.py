@@ -23,8 +23,7 @@ class hierachy:
         if list1 is None or len(list1) == 0:
             return list2
         else:
-            fin_list.append(list1[1:])
-            fin_list.append(list2)
-            fin_list.append[list1[0]]
-            return fin_list
+            fin_list.append(list1[0])
+            fin_list.append(self.add_list(list1[1:],list2))
+        return fin_list
         
