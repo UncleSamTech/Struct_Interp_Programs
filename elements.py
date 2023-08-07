@@ -203,6 +203,26 @@ class element:
            val =  self.change_coins(amount,(kinds_of_coins -1)) + self.change_coins((amount - (self.first_denom_kind_coins(kinds_of_coins))),kinds_of_coins)
            return val
 
+    def firs_denom(self,list_coins):
+        return list_coins[0] if self.no_more(list_coins) is False else list_coins
+
+    def no_more(self,list_coins):
+        return True if list_coins is None or len(list_coins) < 1 else False
+    
+    def except_first(self,list_coins):
+        return list_coins[1:] if self.no_more(list_coins) is False else list_coins
+    
+
+    def change_coins_upd(self,amount,list_of_coins):
+        if amount == 0:
+            return 1
+        elif amount < 0 or self.no_more(list_of_coins):
+            return 0
+        else:
+            return self.change_coins_upd(amount,self.except_first(list_of_coins)) + self.change_coins_upd((amount-self.firs_denom(list_of_coins),list_of_coins))
+
+
+
     def pascal_recurs(self,arr_num):
         main_row = [1]
         if arr_num == 1:
@@ -424,6 +444,7 @@ class element:
         gcd_sim = self.gcd(206,40)
         aly_chk = self.alysa_check()
         hier_chk =  self.hierach_check(3)
+        print('coins_update', self.change_coins_upd(100,[50,25,10,5,1]))
         print('hiera_chk',hier_chk)
         print('alyssa_check' , aly_chk)
         print('gcd',gcd_sim)
