@@ -19,11 +19,6 @@ class hierachy:
         return count if items is None or len(items) == 0 else self.iter_list_length(items[1:],count + 1)
     
     def add_list(self,list1,list2):
-        fin_list = []
-        if list1 is None or len(list1) == 0:
-            return list2
-        else:
-            fin_list.append(list1[0])
-            fin_list.append(self.add_list(list1[1:],list2))
-        return fin_list
+        return list2 if list1 is None or len(list1) == 0 else list1[0:1] + self.add_list(list1[1:],list2)
+        
         
