@@ -22,3 +22,9 @@ class hierachy:
         return list2 if list1 is None or len(list1) == 0 else list1[0:1] + self.add_list(list1[1:],list2)
         
         
+    def last_pair(self,list1):
+        return list1[-1] if list1 is not None or len(list1) > 0 else None
+    
+    def reverse_list(self,list1):
+        return list1 if len(list1) == 0 or len(list1) == 1 else list1[-1:] + self.reverse_list(list1[:-1])
+        

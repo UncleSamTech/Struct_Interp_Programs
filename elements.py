@@ -402,6 +402,8 @@ class element:
         print('list lenght', hier.list_length(list_val))
         print('iter_list_lenght',hier.iter_list_length(list_val,0))
         print('add list',hier.add_list(list_val,list_two))
+        print('last_pair', hier.last_pair(list_val))
+        print('revers_list', hier.reverse_list(list_val))
         return hier.view_square_val(val)
     
 
