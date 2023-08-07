@@ -9,6 +9,7 @@ from ration_class import rational
 from rectangle import rectangle
 from alyssa import alyssa
 from hierachy import hierachy
+from list_parity import list_parity
 
 class element:
 
@@ -427,6 +428,10 @@ class element:
         print('revers_list', hier.reverse_list(list_val))
         return hier.view_square_val(val)
     
+    def check_list_par(self):
+        ls_par = list_parity()
+        return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
+    
 
 
     def get_answer(self):
@@ -443,6 +448,8 @@ class element:
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
         gcd_sim = self.gcd(206,40)
+        ls_par = self.check_list_par()
+        print('list_par',ls_par)
         aly_chk = self.alysa_check()
         hier_chk =  self.hierach_check(3)
         coins = [50,25,10,5,1]
