@@ -14,3 +14,7 @@ class list_parity:
             else:
                 list2.append(i)
         return list1,list2
+    
+    def scale_list_items(self,items,factor):
+        return [] if items is None or len(items) < 1 else ([i * factor for i in items[0:1]]) + self.scale_list_items(items[1:],factor) 
+        
