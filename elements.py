@@ -432,6 +432,7 @@ class element:
         list_values = [1,2,3,4,5]
         ls_par = list_parity()
         print('scaled_items', ls_par.scale_list_items(list_values,10))
+        print('mapped list', ls_par.get_mapped(list_values,list_values))
         return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
     
 
