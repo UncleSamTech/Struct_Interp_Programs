@@ -2,6 +2,7 @@ class list_parity:
     def __init__(self):
         self.list_val = None
         self.val = lambda list1,list2 : None if list1 is None and list2 is None else [list1 + [(2 * i)] for i in list2]
+        self.mapped_items =  lambda items,factor : [j * factor for j in items]
 
     def get_list_value(self):
         return self.list_val
@@ -14,9 +15,9 @@ class list_parity:
     def scale_list_items(self,items,factor):
         return [] if items is None or len(items) < 1 else ([i * factor for i in items[0:1]]) + self.scale_list_items(items[1:],factor) 
         
-    def map_list(self):
-            val = lambda list1,list2 : None if list1 is None and list2 is None else [list1 + [(2 * i)] for i in list2]
-            return val
+    def scaled_list_mapped(self,items,factor):
+        return self.mapped_items(items,factor)
+        
             
     
     def get_mapped(self,lis,lis2):
