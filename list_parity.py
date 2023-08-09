@@ -4,6 +4,7 @@ class list_parity:
         self.val = lambda list1,list2 : None if list1 is None and list2 is None else [list1 + [(2 * i)] for i in list2]
         self.mapped_items =  lambda items,factor : [j * factor for j in items]
         self.square_list_items_map = lambda items : [j ** 2 for j in items[0:1]] + [k ** 2 for k in items[1:]]
+        self.lambda_display = lambda items,proc : (print(j * proc) for j in items[0:])
 
     def get_list_value(self):
         return self.list_val
@@ -41,3 +42,5 @@ class list_parity:
 
         
             
+    def display_res(self, items, proc):
+        return self.lambda_display(items,proc)

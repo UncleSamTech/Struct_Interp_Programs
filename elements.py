@@ -438,6 +438,7 @@ class element:
         print('square list map', ls_par.square_list_items_map(list_values))
         print('iter_items' , ls_par.iter_items(list_values,[]))
         print('iter_items_corr' , ls_par.iter_items_corr(list_values,[]))
+        print('lambda display',ls_par.lambda_display(list_values,2))
         return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
     
 
