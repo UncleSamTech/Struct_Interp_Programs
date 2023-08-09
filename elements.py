@@ -434,6 +434,8 @@ class element:
         print('scaled_items', ls_par.scale_list_items(list_values,10))
         print('scaled_items_mapped', ls_par.scaled_list_mapped(list_values,10))
         print('mapped list', ls_par.get_mapped(list_values,list_values))
+        print('square list', ls_par.square_list_items(list_values))
+        print('square list map', ls_par.square_list_items_map(list_values))
         return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
     
 
