@@ -26,3 +26,16 @@ class list_parity:
     
     def square_list_items(self,items):
         return [] if items is None and len(items) < 1 else [i ** 2 for i in items[0:1]] + [i ** 2 for i in items[1:]]
+    
+    def get_mapped_square_items(self,items):
+        return self.square_list_items_map(items)
+    
+    def square_list_iter(self,items):
+        pass
+
+    def iter_items(self,things,answer):
+        if things is None or len(things) < 1:
+            return answer
+        return self.iter_items(things[1:] , ([i ** 2 for i in things[0:1]] + answer))
+            
+            
