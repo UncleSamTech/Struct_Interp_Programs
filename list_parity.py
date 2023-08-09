@@ -36,4 +36,8 @@ class list_parity:
     def iter_items(self,things,answer):
         return answer if things is None or len(things) < 1 else self.iter_items(things[1:],([i ** 2 for i in things[0:1]] + answer))
 
+    def iter_items_corr(self,things,answer):
+        return answer if things is None or len(things) < 1 else self.iter_items_corr(things[1:],(answer + ([i ** 2 for i in things[0:1]])))
+
+        
             
