@@ -10,6 +10,7 @@ from rectangle import rectangle
 from alyssa import alyssa
 from hierachy import hierachy
 from list_parity import list_parity
+from trees import trees
 
 class element:
 
@@ -441,6 +442,11 @@ class element:
         print('lambda display',ls_par.display_res(list_values))
         print('list_display', ls_par.display_proc(list_values))
         return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
+    
+    def trees_check(self,list_val):
+        list_tr = [2,3,[3,4],5,[6,7]]
+        ch_tr = trees()
+        ch_tr.count_leaves
     
 
 
