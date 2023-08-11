@@ -443,10 +443,10 @@ class element:
         print('list_display', ls_par.display_proc(list_values))
         return ls_par.even_odd_parity(1,3,5,4,6,7,8,9,10)
     
-    def trees_check(self,list_val):
+    def trees_check(self):
         list_tr = [2,3,[3,4],5,[6,7]]
         ch_tr = trees()
-        ch_tr.count_leaves
+        return ch_tr.count_leaves(list_tr)
     
 
 
@@ -464,6 +464,8 @@ class element:
         ex_10_2 = self.exercise_1_10('A',2,4)
         ex_10_3 = self.exercise_1_10('A',3,3)
         gcd_sim = self.gcd(206,40)
+        tree_leave_count = self.trees_check()
+        print('leave count', tree_leave_count)
         ls_par = self.check_list_par()
         print('list_par',ls_par)
         aly_chk = self.alysa_check()
