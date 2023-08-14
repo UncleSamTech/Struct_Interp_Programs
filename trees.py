@@ -1,3 +1,4 @@
+from hierachy import hierachy
 class trees:
 
     def __init__(self):
@@ -36,3 +37,19 @@ class trees:
         lev3_cdr = lev2_cdr[1:]
         print('level_3',lev3_cdr)
         return list_val[1:][1:][1:][1:][1:]
+    
+    def cons_list(self,list1,list2):
+        return list1 + list2
+        
+    def appen_list(self,list1,list2):
+        app_list = []
+        app_list.append(list1)
+        app_list.append(list2)
+        return app_list
+    
+    def list_both(self,list1,list2):
+        list1.extend(list2)
+        return list1
+    
+
+
