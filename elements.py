@@ -445,7 +445,16 @@ class element:
     
     def trees_check(self):
         list_tr = [2,3,[3,4],5,[6,7]]
+        list_1 = [1,3,[5,7],9]
+        list_2 = [[7]]
+        list_3 = [1,[2,[3,[4,[5,[6,7]]]]]]
         ch_tr = trees()
+        val_drill = ch_tr.drill_tree_1(list_1)
+        val_drill2 = ch_tr.drill_tree_2(list_2)
+        val_drill3 = ch_tr.drill_tree_3(list_3)
+        print('tree_val_find',val_drill)
+        print('tree_drill_val2',val_drill2)
+        print('tree_drill3',val_drill3)
         return ch_tr.count_leaves(list_tr)
     
 
