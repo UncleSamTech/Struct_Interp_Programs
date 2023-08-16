@@ -457,12 +457,14 @@ class element:
         app_list = ch_tr.appen_list(list1,list2)
         cons_list  =  ch_tr.cons_list(list1,list2)
         lis_list = ch_tr.list_both(list1,list2)
+        deep_rev  = ch_tr.deep_rev_list(list1)
         print('lis_list',lis_list)
         print('constructed_list',cons_list)
         print('appended_list',app_list)
         print('tree_val_find',val_drill)
         print('tree_drill_val2',val_drill2)
         print('tree_drill3',val_drill3)
+        print('deep_reversed_tree',deep_rev)
 
         return ch_tr.count_leaves(list_tr)
     

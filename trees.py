@@ -51,5 +51,23 @@ class trees:
         list1.extend(list2)
         return list1
     
+    def deep_rev_list(self,deep_list):
+        rev_list = []
+        if len(deep_list) == 0 or len(deep_list) == 1:
+            return rev_list
+        else:
+            for i in deep_list:
+                if isinstance(i,list):
+                    rev_list.append(i[-1:] + self.deep_rev_list(i[:-1]))
+                else:
+                    rev_list.append(i)
+                return rev_list
+            val = deep_list[-1:] + self.deep_rev_list(deep_list[:-1])
+            rev_list.append(val)
+            return rev_list
+         
 
+
+    def fringe(self,tree_list):
+        pass
 
