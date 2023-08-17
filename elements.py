@@ -450,7 +450,7 @@ class element:
         list_3 = [1,[2,[3,[4,[5,[6,7]]]]]]
         list1 = [1,2,3]
         list2 = [4,5,6]
-        br_mobile_val = [1,[3,5]]
+        br_mobile_val = [1,[3,3]]
         ch_tr = trees()
         val_drill = ch_tr.drill_tree_1(list_1)
         val_drill2 = ch_tr.drill_tree_2(list_2)
@@ -462,6 +462,8 @@ class element:
         fring_list = ch_tr.fringe(list_3)
         br_list = ch_tr.make_mobile(3,4)
         br_mobile = ch_tr.test_mobile_branch(br_mobile_val)
+        check_mobil_tr =ch_tr.test_binary_mobile(br_mobile_val)
+        print('mobile_struct',check_mobil_tr)
         print('branch mobile', br_mobile)
         print('br_list',br_list)
         print('lis_list',lis_list)

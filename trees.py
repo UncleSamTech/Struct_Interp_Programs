@@ -112,3 +112,14 @@ class trees:
         branch_lenght = list_val[0] if isinstance(list_val,list) and len(list_val) >= 0 else 0
         branch_structure = list_val[1:] if isinstance(list_val,list) and len(list_val) >= 0 else []
         return left_branch, right_branch , branch_lenght, branch_structure
+    
+    def total_weight(self,mobile_br):
+        return sum(mobile_br) if isinstance(mobile_br,list) and len(mobile_br) > 0 else mobile_br
+    
+    def test_binary_mobile(self,list_mobile):
+        if list_mobile is None or len(list_mobile) <= 1:
+            return False
+        else:
+            mobile_struct = list_mobile[1:][0]
+            return True if list_mobile[0] * mobile_struct[0] == list_mobile[0] * mobile_struct[1] else False
+    
