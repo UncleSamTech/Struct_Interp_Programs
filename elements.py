@@ -458,7 +458,7 @@ class element:
         cons_list  =  ch_tr.cons_list(list1,list2)
         lis_list = ch_tr.list_both(list1,list2)
         deep_rev  = ch_tr.deep_rev_list(list1)
-        fring_list = ch_tr.fringe(list_tr)
+        fring_list = ch_tr.fringe(list_3)
         print('lis_list',lis_list)
         print('fringelist', fring_list)
         print('constructed_list',cons_list)

@@ -70,17 +70,13 @@ class trees:
 
     def fringe(self,deep_lis):
         final_list = []
-        if isinstance(deep_lis,list):
-            if len(deep_lis) == 0 or len(deep_lis) == 1:
-                return final_list
-        else:
+        if isinstance(deep_lis,list) and len(deep_lis) == 0 or len(deep_lis) == 1:
+            return deep_lis
+        def extr_deep_lis(deep_lis):
             for i in deep_lis:
                 if isinstance(i,list):
-                    final_list.append(self.fringe(i))
-                    print('nest_fring',final_list)
+                    extr_deep_lis(i)
                 else:
-                    final_list.append(self.fringe(deep_lis))
-        #final_list.append(self.fringe(deep_lis))
-        return final_list
-        
-
+                    final_list.append(i)
+            return final_list
+        return extr_deep_lis(deep_lis)
