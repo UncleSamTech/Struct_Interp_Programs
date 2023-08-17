@@ -122,4 +122,19 @@ class trees:
         else:
             mobile_struct = list_mobile[1:][0]
             return True if list_mobile[0] * mobile_struct[0] == list_mobile[0] * mobile_struct[1] else False
+        
+    def scale_tree(self,tree_val,factor):
+        new_scaled_tree = []
+        if tree_val is None or len(tree_val) < 1:
+            return tree_val
+        def sc_tr(tr_ls,fact):
+            for i in tr_ls:
+                if not isinstance(i,dict):
+                    new_scaled_tree.append(i * fact)
+                else:
+                    new_scaled_tree.append(sc_tr(tr_ls[0:1],fact) + sc_tr(tr_ls[1:],fact))
+            return new_scaled_tree
+        return sc_tr(tree_val,factor)
+
+                
     
