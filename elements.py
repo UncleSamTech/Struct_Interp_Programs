@@ -463,7 +463,7 @@ class element:
         br_list = ch_tr.make_mobile(3,4)
         br_mobile = ch_tr.test_mobile_branch(br_mobile_val)
         check_mobil_tr =ch_tr.test_binary_mobile(br_mobile_val)
-        scaled_tree = ch_tr.scale_tree(list2,2)
+        scaled_tree = ch_tr.scale_tree(list_3,2)
         print('scaled_tree',scaled_tree)
         print('mobile_struct',check_mobil_tr)
         print('branch mobile', br_mobile)

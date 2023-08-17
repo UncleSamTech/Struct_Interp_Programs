@@ -125,11 +125,11 @@ class trees:
         
     def scale_tree(self,tree_val,factor):
         new_scaled_tree = []
-        if tree_val is None or len(tree_val) < 1:
+        if tree_val is None or len(tree_val) == 1 or len(tree_val) == 0:
             return tree_val
         def sc_tr(tr_ls,fact):
             for i in tr_ls:
-                if not isinstance(i,dict):
+                if isinstance(i,list):
                     new_scaled_tree.append(i * fact)
                 else:
                     new_scaled_tree.append(sc_tr(tr_ls[0:1],fact) + sc_tr(tr_ls[1:],fact))
