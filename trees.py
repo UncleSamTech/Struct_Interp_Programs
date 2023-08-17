@@ -80,3 +80,35 @@ class trees:
                     final_list.append(i)
             return final_list
         return extr_deep_lis(deep_lis)
+    
+    def make_mobile(self,left,right):
+        branch_list = []
+        branch_list.append(left)
+        branch_list.append(right)
+        return branch_list
+    
+    def make_branch(self,lenght,structure):
+        branch_list = []
+        if lenght != None or structure != None or len(structure) < 1:
+            branch_list.append(lenght,structure)
+        return branch_list
+
+    def get_left_branch(self,branch_list):
+        return branch_list[0] if isinstance(branch_list,list) and len(branch_list) > 0 else 0
+
+    def get_right_branch(self,branch_list):
+        return branch_list[1] if isinstance(branch_list,list) and len(branch_list) > 1 else 0 
+    
+    def get_branch_length(self,branch_list):
+        return branch_list[0] if isinstance(branch_list,list) and len(branch_list) >= 0 else 0
+    
+    def get_branch_struct(self,branch_list):
+        return branch_list[1:] if isinstance(branch_list,list) and len(branch_list) > 1 else []
+    
+    def test_mobile_branch(self,list_val):
+        list_struct = list_val[1:][0] if isinstance(list_val,list) and len(list_val) >= 1 else []
+        left_branch = self.get_left_branch(list_struct)
+        right_branch = self.get_right_branch(list_struct)
+        branch_lenght = list_val[0] if isinstance(list_val,list) and len(list_val) >= 0 else 0
+        branch_structure = list_val[1:] if isinstance(list_val,list) and len(list_val) >= 0 else []
+        return left_branch, right_branch , branch_lenght, branch_structure
