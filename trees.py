@@ -125,11 +125,11 @@ class trees:
         
     def scale_tree(self,tree_val,factor):
         new_scaled_tree = []
-        if tree_val is None or len(tree_val) == 1 or len(tree_val) == 0:
-            return tree_val
+        if tree_val is None or len(tree_val) == 0:
+            return []
         def sc_tr(tr_ls,fact):
             for i in tr_ls:
-                if isinstance(i,list):
+                if not isinstance(tr_ls,list) or len(tr_ls) == 1:
                     new_scaled_tree.append(i * fact)
                 else:
                     new_scaled_tree.append(sc_tr(tr_ls[0:1],fact) + sc_tr(tr_ls[1:],fact))
@@ -137,4 +137,37 @@ class trees:
         return sc_tr(tree_val,factor)
 
                 
+    def scale_tree_map(self,tree_list,factor):
+        map_scaled_tree = []
+        if tree_list is None or len(tree_list) == 0:
+            return []
+        def map_scale_tree_list(tr_list,factor):
+            for i in tr_list:
+                if not isinstance(i,list):
+                    map_scaled_tree.append(i * factor)
+                else:
+                    map_scaled_tree.append(map_scale_tree_list(tr_list[0:1],factor) + map_scale_tree_list(tr_list[1:]))
+            return map_scaled_tree
+        return map_scale_tree_list(tree_list,factor)
+    
+    def square_tree(self,tree_list):
+        if tree_list is None or len(tree_list) == 0:
+            return []
+        else:
+            return [i ** 2 for i in tree_list[0:1]] + [j ** 2 for j in tree_list[1:]]
+        
+    def square_tree_rec(self,tree_list):
+        squared_list = []
+        if tree_list is None or len(tree_list) == 0 or len(tree_list) == 1:
+            return tree_list
+        def sq_tr_ls_rec(tree_lis):
+            for i in tree_lis:
+                if not isinstance(i,list):
+                    squared_list.append(i ** 2)
+                else:
+                    squared_list.append(sq_tr_ls_rec(tree_lis[0:1]) + sq_tr_ls_rec(tree_lis[1:]))
+            return squared_list
+        return sq_tr_ls_rec(tree_list)
+
+        
     

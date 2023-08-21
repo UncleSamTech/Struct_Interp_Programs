@@ -448,7 +448,7 @@ class element:
         list_1 = [1,3,[5,7],9]
         list_2 = [[7]]
         list_3 = [1,[2,[3,[4,[5,[6,7]]]]]]
-        list1 = [1,2,3]
+        list1 = [2,3]
         list2 = [4,5,6]
         br_mobile_val = [1,[3,3]]
         ch_tr = trees()
@@ -464,7 +464,13 @@ class element:
         br_mobile = ch_tr.test_mobile_branch(br_mobile_val)
         check_mobil_tr =ch_tr.test_binary_mobile(br_mobile_val)
         scaled_tree = ch_tr.scale_tree(list_3,2)
+        scaled_tree_map = ch_tr.scale_tree(list1,2)
+        sq_tree = ch_tr.square_tree(list1)
+        sq_tree_rec = ch_tr.square_tree_rec(list2)
+        print('squared_tree',sq_tree)
+        print('squared_tree recursively',sq_tree_rec)
         print('scaled_tree',scaled_tree)
+        #print('scaled tree map',scaled_tree_map)
         print('mobile_struct',check_mobil_tr)
         print('branch mobile', br_mobile)
         print('br_list',br_list)
