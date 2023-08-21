@@ -467,6 +467,8 @@ class element:
         scaled_tree_map = ch_tr.scale_tree(list1,2)
         sq_tree = ch_tr.square_tree(list1)
         sq_tree_rec = ch_tr.square_tree_rec(list2)
+        sum_odd_sq = ch_tr.sum_odd_squares(list1)
+        print('sum_odd_square',sum_odd_sq)
         print('squared_tree',sq_tree)
         print('squared_tree recursively',sq_tree_rec)
         print('scaled_tree',scaled_tree)

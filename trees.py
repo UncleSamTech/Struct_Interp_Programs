@@ -149,7 +149,7 @@ class trees:
                     map_scaled_tree.append(map_scale_tree_list(tr_list[0:1],factor) + map_scale_tree_list(tr_list[1:]))
             return map_scaled_tree
         return map_scale_tree_list(tree_list,factor)
-    
+     
     def square_tree(self,tree_list):
         if tree_list is None or len(tree_list) == 0:
             return []
@@ -170,4 +170,10 @@ class trees:
         return sq_tr_ls_rec(tree_list)
 
         
-    
+    def sum_odd_squares(self,tree_list):
+        if tree_list is None or len(tree_list) < 1:
+            return 0
+        for i in tree_list:
+            if i % 2 != 0  and not isinstance(i,list):
+                return i ** 2    
+        return self.sum_odd_squares(tree_list[0:1]) + self.sum_odd_squares(tree_list[1:])
