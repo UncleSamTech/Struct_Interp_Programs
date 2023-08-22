@@ -177,3 +177,32 @@ class trees:
             if i % 2 != 0  and not isinstance(i,list):
                 return i ** 2    
         return self.sum_odd_squares(tree_list[0:1]) + self.sum_odd_squares(tree_list[1:])
+    
+
+    def predicate(self,list_val):
+        odd_val = []
+        if list_val is None or len(list_val) < 1:
+            return odd_val
+        else:
+            for i in list_val:
+                if i % 2 != 0:
+                    odd_val.append(i)
+            return odd_val
+
+    def filter_pred(self,predicate,seq_list):
+        predicate = self.predicate(seq_list)
+        new_list = []
+        if seq_list is None or len(seq_list) < 1:
+            new_list.append(seq_list)
+        else:
+             [new_list.append(i) for i in predicate if i in seq_list[0:1]]
+             
+        def fil_pred_inner(predic,list2):
+            predic = predicate
+            for i in predic:
+                if i in list2[1:]:
+                   new_list.append(i)
+            return new_list
+        return fil_pred_inner(predicate,seq_list)
+        
+        

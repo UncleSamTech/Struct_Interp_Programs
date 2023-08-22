@@ -468,6 +468,9 @@ class element:
         sq_tree = ch_tr.square_tree(list1)
         sq_tree_rec = ch_tr.square_tree_rec(list2)
         sum_odd_sq = ch_tr.sum_odd_squares(list1)
+        pred_list = [1,2,3,4,5,6,7,8,9,10]
+        filt_pred = ch_tr.filter_pred(pred_list,pred_list)
+        print('filtered_predicate',filt_pred)
         print('sum_odd_square',sum_odd_sq)
         print('squared_tree',sq_tree)
         print('squared_tree recursively',sq_tree_rec)
