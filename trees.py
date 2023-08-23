@@ -227,7 +227,8 @@ class trees:
             return initial
         val = self.decide_opp(op)
         for i in sequence[0:1]:
-            resp = i + initial
+            resp = val(i,0)
+            print('resp_flow',resp)
         return resp + self.accumulate(op,initial,sequence[1:])
         
         
