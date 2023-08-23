@@ -1,4 +1,6 @@
 from hierachy import hierachy
+import operator
+
 class trees:
 
     def __init__(self):
@@ -204,5 +206,28 @@ class trees:
                    new_list.append(i)
             return new_list
         return fil_pred_inner(predicate,seq_list)
+    
+    def decide_opp(self,opp):
+        opps = {"+":operator.add, "-":operator.sub,"*":operator.mul, "/":operator.truediv}
+        if opp is None:
+            return None
+        match  opp:
+            case "add":
+                return opps["+"]
+            case "subtract":
+                return opps["-"]
+            case "multiply":
+                return opps["*"]
+            case "divide":
+                return opps["/"]
+        
+    def accumulate(self,op,initial,sequence):
+        resp = 0
+        if sequence is None or len(sequence) < 1:
+            return initial
+        val = self.decide_opp(op)
+        for i in sequence[0:1]:
+            resp = i + initial
+        return resp + self.accumulate(op,initial,sequence[1:])
         
         
