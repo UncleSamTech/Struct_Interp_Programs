@@ -468,10 +468,12 @@ class element:
         sq_tree = ch_tr.square_tree(list1)
         sq_tree_rec = ch_tr.square_tree_rec(list2)
         sum_odd_sq = ch_tr.sum_odd_squares(list1)
+        enum_low = ch_tr.enumerate_interval(2,7)
         pred_list = [1,2,3,4,5,6,7,8,9,10]
         filt_pred = ch_tr.filter_pred(pred_list,pred_list)
         acc =  ch_tr.accumulate("add",1,list2)
         print('accumulated_value',acc)
+        print('enumerated',enum_low)
         print('filtered_predicate',filt_pred)
         print('sum_odd_square',sum_odd_sq)
         print('squared_tree',sq_tree)
