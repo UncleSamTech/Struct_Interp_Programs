@@ -234,11 +234,10 @@ class trees:
     def enumerate_interval(self,low,high):
         new_enum = []
         if low > high:
-            return None
-        new_enum.append(low)
-        new_enum.append(self.enumerate_interval((low + 1),high))
-        #val  = low + self.enumerate_interval((low + 1),high)
-        print(new_enum)
+            return []
+        else:
+            new_enum.append(low) 
+            new_enum.extend(self.enumerate_interval(low + 1, high))
         return new_enum
     
 
