@@ -240,6 +240,23 @@ class trees:
             new_enum.extend(self.enumerate_interval(low + 1, high))
         return new_enum
     
+    def enumerate_tree(self,tree_list):
+        new_list = []
+        if tree_list is None and len(tree_list) < 1:
+            return tree_list
+        def enum_tree_int(tree_list_int):
+            if len(tree_list_int) == 0 or len(tree_list_int) == 1 and (isinstance(i,list) is False for i in tree_list_int):
+                return tree_list_int
+            for i in tree_list_int:
+                if not isinstance(i,list):
+                    new_list.append(i)
+                else:
+                   enum_tree_int(i)
+            return new_list
+        return enum_tree_int(tree_list)
+        
+        
+    
 
         
         
