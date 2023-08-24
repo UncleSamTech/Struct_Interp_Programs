@@ -471,8 +471,10 @@ class element:
         enum_low = ch_tr.enumerate_interval(2,7)
         enumer_tree = ch_tr.enumerate_tree(list_3)
         pred_list = [1,2,3,4,5,6,7,8,9,10]
-        filt_pred = ch_tr.filter_pred(pred_list,pred_list)
+        filt_pred = ch_tr.filter_pred(pred_list)
         acc =  ch_tr.accumulate("add",1,list2)
+        sum_odd_sq_seq = ch_tr.sum_odd_sq_enc(list2)
+        print('sum_odd_squares',sum_odd_sq_seq)
         print('accumulated_value',acc)
         print('enumerated',enum_low)
         print('enumerated tree', enumer_tree)

@@ -177,7 +177,7 @@ class trees:
             return 0
         for i in tree_list:
             if i % 2 != 0  and not isinstance(i,list):
-                return i ** 2    
+                 return [i ** 2]
         return self.sum_odd_squares(tree_list[0:1]) + self.sum_odd_squares(tree_list[1:])
     
 
@@ -191,7 +191,7 @@ class trees:
                     odd_val.append(i)
             return odd_val
 
-    def filter_pred(self,predicate,seq_list):
+    def filter_pred(self,seq_list):
         predicate = self.predicate(seq_list)
         new_list = []
         if seq_list is None or len(seq_list) < 1:
@@ -222,14 +222,16 @@ class trees:
                 return opps["/"]
         
     def accumulate(self,op,initial,sequence):
-        resp = 0
-        if sequence is None or len(sequence) < 1:
-            return initial
-        val = self.decide_opp(op)
+        resp = []
+        if len(sequence) == 0:
+                return initial
+        elif len(sequence) == 1 and [isinstance(i,list) is False for i in sequence]:
+            return sequence 
+        #val = self.decide_opp(op)
         for i in sequence[0:1]:
-            resp = val(i,0)
-            print('resp_flow',resp)
-        return resp + self.accumulate(op,initial,sequence[1:])
+            resp.append(i + initial)
+        fin_val = self.accumulate(op,initial,sequence[1:])
+        return fin_val
     
     def enumerate_interval(self,low,high):
         new_enum = []
@@ -254,6 +256,18 @@ class trees:
                    enum_tree_int(i)
             return new_list
         return enum_tree_int(tree_list)
+    
+    def sum_odd_sq_enc(self,tree_list):
+        operator_val = self.decide_opp("add")
+        enum_tree_list = self.enumerate_tree(tree_list)
+        print('enum_tree_list',enum_tree_list)
+        filtered_seq = self.filter_pred(enum_tree_list)
+        print('filtered_sequence',filtered_seq)
+        mapped_square = self.sum_odd_squares(filtered_seq)
+        print('mapped square', mapped_square)
+        val  = self.accumulate(operator_val,1,mapped_square)
+        
+        return val
         
         
     
