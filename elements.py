@@ -474,7 +474,7 @@ class element:
         filt_pred = ch_tr.filter_pred(pred_list)
         acc =  ch_tr.accumulate("add",1,list2)
         sum_odd_sq_seq = ch_tr.sum_odd_sq_enc(list2)
-        even_fibs = ch_tr.even_fibs(2)
+        even_fibs = ch_tr.even_fibs(8)
         print('sum_odd_squares',sum_odd_sq_seq)
         print('accumulated_value',acc)
         print('enumerated',enum_low)
