@@ -268,8 +268,32 @@ class trees:
         val  = self.accumulate(operator_val,1,mapped_square)
         
         return val
-        
-        
+    
+    def filt_even(self,list_num):
+        even_list = []
+        if list_num is None or len(list_num) < 1:
+            return []
+        else:
+            for i in list_num:
+                if i % 2 == 0:
+                    even_list.append(i)
+            return even_list  
+          
+    def even_fibs(self,n):
+        accum_list = []
+        fib_list = []
+        if n is None or n < 1:
+            return []
+        def even_inter_fibs(n):
+            for i in range(0,n):
+                accum_list.append(i)
+            val = [accum_list[i-1] + accum_list[i - 2] for i in accum_list]
+            print('mapped_even_fib',val)
+            return self.filt_even(fib_list)
+        return even_inter_fibs(23)
+    
+
+                
     
 
         
