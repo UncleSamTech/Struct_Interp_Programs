@@ -229,10 +229,10 @@ class trees:
         if len(sequence) == 0:
                 return initial
         elif len(sequence) == 1 and [isinstance(i,list) is False for i in sequence]:
-            return sequence 
-        #val = self.decide_opp(op)
+            return sequence[0] 
+        val = self.decide_opp(op)
         for i in sequence[0:1]:
-            resp.append(i + initial)
+            resp.append(i * initial)
         fin_val = self.accumulate(op,initial,sequence[1:])
         return fin_val
     
@@ -309,6 +309,12 @@ class trees:
         return map_sq
                 
     
-
+    def prod_squ_odd_elements(self,sequence):
+        init = 1
+        filterd_odd = self.filter_pred(sequence)
+        mapped_sqq = self.square_tree_rec(filterd_odd)
+        for i in mapped_sqq:
+            init *= i
+        return init
         
         

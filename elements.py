@@ -475,7 +475,10 @@ class element:
         acc =  ch_tr.accumulate("add",1,list2)
         sum_odd_sq_seq = ch_tr.sum_odd_sq_enc(list2)
         even_fibs = ch_tr.even_fibs(10)
+        list_val = [1,2,3,4,5]
         list_fibs_sq = ch_tr.list_fib_squares(10)
+        filt_odd = ch_tr.prod_squ_odd_elements(list_val)
+        print('filtered odd',filt_odd)
         print('sum_odd_squares',sum_odd_sq_seq)
         print('accumulated_value',acc)
         print('list_fib_squares',list_fibs_sq)
