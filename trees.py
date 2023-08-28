@@ -277,6 +277,7 @@ class trees:
             for i in list_num:
                 if i % 2 == 0:
                     even_list.append(i)
+            print('even_list',even_list)
             return even_list  
           
     def even_fibs(self,n):
@@ -287,9 +288,12 @@ class trees:
         def even_inter_fibs(n):
             for i in range(0,n):
                 accum_list.append(i)
-            val = [accum_list[i-1] + accum_list[i - 2] for i in accum_list]
-            print('val_even_fib',val)
-            return self.filt_even(val)
+            for i  in accum_list:
+                if i == 0 or i == 1:
+                    fib_list.append(i)
+                else:
+                    fib_list.append(accum_list[i-1] + accum_list[i - 2])
+            return self.filt_even(fib_list)
         return even_inter_fibs(n)
     
 
