@@ -173,12 +173,15 @@ class trees:
 
         
     def sum_odd_squares(self,tree_list):
+        new_tree_list = []
         if tree_list is None or len(tree_list) < 1:
-            return 0
+            return []
         for i in tree_list:
             if i % 2 != 0  and not isinstance(i,list):
-                 return [i ** 2]
-        return self.sum_odd_squares(tree_list[0:1]) + self.sum_odd_squares(tree_list[1:])
+                 new_tree_list.append(i ** 2)
+                 #return [i ** 2]
+        new_tree_list.append(tree_list[0:1] + self.sum_odd_squares(tree_list[1:]))
+        return new_tree_list
     
 
     def predicate(self,list_val):
@@ -297,6 +300,13 @@ class trees:
         return even_inter_fibs(n)
     
 
+    def list_fib_squares(self,n):
+        if n is None or n < 1:
+            return []
+        map_sq = [self.sum_odd_squares(self.even_fibs(i)) for i in range(0,n)]
+        print('map_even_fib',map_sq)
+        #val =  self.accumulate("add",None,self.even_fibs(n))
+        return map_sq
                 
     
 
