@@ -288,6 +288,7 @@ class trees:
             for i in range(0,n):
                 accum_list.append(i)
             val = [accum_list[i-1] + accum_list[i - 2] for i in accum_list]
+            print('original_even_fib',accum_list)
             print('mapped_even_fib',val)
             return self.filt_even(fib_list)
         return even_inter_fibs(23)
